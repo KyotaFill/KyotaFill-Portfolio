@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio of Trần Trung Kiên (KyotaFill), an AI/ML and IoT student building practical computer-vision, full-stack, and connected-system products." />
+    <meta name="theme-color" content="#eceff1" />
+    <meta property="og:title" content="KyotaFill — AI/ML & IoT Portfolio" />
+    <meta property="og:description" content="Models, products, and connected systems built by Trần Trung Kiên." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/banners/9.jpg" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23565b5f%22/><path d=%22M17 48V16h8v13l13-13h10L34 30l15 18H39L28 36l-3 3v9z%22 fill=%22white%22/></svg>" />
+    <link rel="preload" href="assets/banners/9.jpg" as="image" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>KyotaFill — AI/ML & IoT Portfolio</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="header">
+      <nav class="menu" aria-label="Primary navigation">
+        <a class="menu-item home-button" href="#top" title="Home" aria-label="Home">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.2 12 4l9 7.2v8.3a.5.5 0 0 1-.5.5H15v-6H9v6H3.5a.5.5 0 0 1-.5-.5z" /></svg>
+        </a>
+        <a class="menu-item" href="#profile">Profile</a>
+        <a class="menu-item" href="#projects">Projects</a>
+        <a class="menu-item" href="#stack">Stack</a>
+        <a class="menu-item" href="#contact">Contact</a>
+        <button class="search-button" id="search-button" type="button" title="Search projects" aria-label="Search projects">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.7" cy="10.7" r="5.7" /><path d="m15 15 4.5 4.5" /></svg>
+        </button>
+      </nav>
+
+      <div class="search-panel" id="search-panel" hidden>
+        <label for="project-search">Search projects</label>
+        <input id="project-search" type="search" placeholder="Try: vision, IoT, FastAPI..." autocomplete="off" />
+        <button id="close-search" type="button" aria-label="Close search">×</button>
+      </div>
+    </header>
+
+    <div class="live2d" aria-label="Interactive Live2D character">
+      <div class="live2d-tip">Welcome to KyotaFill's lab.</div>
+      <canvas id="glcanvas" width="330" height="600" role="img" aria-label="Interactive Live2D character Asuna"></canvas>
+    </div>
+
+    <main class="page" id="main-content">
+      <article class="post-card" id="profile">
+        <div class="card-image">
+          <img data-banner src="assets/banners/9.jpg" alt="Anime banner from the original theme" />
+          <h1>Trần Trung Kiên / KyotaFill</h1>
+        </div>
+        <div class="card-content">
+          <div class="post-meta">
+            <div><time datetime="2025-10-19">2025-10-19</time><span>/</span><time datetime="2026-08-16">2026-08-16</time></div>
+            <div>Category: <a href="#profile">Profile</a></div>
+          </div>
+          <p>
+            I am an AI/ML and IoT student at the University of Economics Ho Chi Minh City,
+            focused on computer vision, product-oriented AI, automation, and embedded systems.
+          </p>
+          <pre class="code-block"><code><span class="comment">// profile.ts</span>
+<span class="keyword">const</span> kyotafill = {
+  role: <span class="string">"AI/ML & IoT Student"</span>,
+  location: <span class="string">"Ho Chi Minh City, Vietnam"</span>,
+  mission: <span class="string">"Learn → Build → Measure → Improve"</span>
+};</code></pre>
+        </div>
+        <footer class="card-footer">
+          <div class="tags"><span>AI/ML</span><span>Computer Vision</span><span>IoT</span></div>
+          <a href="https://github.com/KyotaFill" target="_blank" rel="noreferrer">View GitHub...</a>
+        </footer>
+      </article>
+
+      <div id="projects" class="anchor" aria-hidden="true"></div>
+
+      <article class="post-card project-card" data-search="food vision tensorflow fastapi nextjs computer vision machine learning">
+        <div class="card-image">
+          <img data-banner src="assets/banners/18.jpg" alt="Anime banner from the original theme" />
+          <h2>FoodVision AI</h2>
+        </div>
+        <div class="card-content">
+          <div class="post-meta"><div>Featured build <span>/</span> 01</div><div>Category: <a href="#projects">AI</a></div></div>
+          <p>An end-to-end food-recognition product combining a TensorFlow model, FastAPI services, and a polished Next.js interface.</p>
+          <pre class="mini-code"><code>image → model inference → FastAPI → Next.js result</code></pre>
+        </div>
+        <footer class="card-footer"><div class="tags"><span>TensorFlow</span><span>FastAPI</span><span>Next.js</span></div><a href="https://github.com/KyotaFill/FoodVision-Ai" target="_blank" rel="noreferrer">Open repository...</a></footer>
+      </article>
+
+      <article class="post-card project-card" data-search="shape vision opencv fastapi typescript geometry computer vision">
+        <div class="card-image">
+          <img data-banner src="assets/banners/16.jpg" alt="Anime banner from the original theme" />
+          <h2>ShapeVision</h2>
+        </div>
+        <div class="card-content">
+          <div class="post-meta"><div>Featured build <span>/</span> 02</div><div>Category: <a href="#projects">Vision</a></div></div>
+          <p>Reads freehand drawings and converts them into precise, digitized 2D geometric shapes using a computer-vision pipeline.</p>
+        </div>
+        <footer class="card-footer"><div class="tags"><span>OpenCV</span><span>FastAPI</span><span>TypeScript</span></div><a href="https://github.com/KyotaFill/Final_ShapeVision" target="_blank" rel="noreferrer">Open repository...</a></footer>
+      </article>
+
+      <article class="post-card project-card" data-search="smart home iot esp32 mqtt node red platformio wokwi">
+        <div class="card-image">
+          <img data-banner src="assets/banners/3.jpg" alt="Anime banner from the original theme" />
+          <h2>Smart Home IoT</h2>
+        </div>
+        <div class="card-content">
+          <div class="post-meta"><div>Featured build <span>/</span> 03</div><div>Category: <a href="#projects">IoT</a></div></div>
+          <p>A simulated smart-home system for monitoring the environment and controlling devices with ESP32, MQTT, Node-RED, and Wokwi.</p>
+        </div>
+        <footer class="card-footer"><div class="tags"><span>ESP32</span><span>MQTT</span><span>Node-RED</span></div><a href="https://github.com/KyotaFill/Smart-Home-IoT" target="_blank" rel="noreferrer">Open repository...</a></footer>
+      </article>
+
+      <article class="post-card project-card" data-search="smart campus service desk react express postgresql docker full stack">
+        <div class="card-image">
+          <img data-banner src="assets/banners/19.jpg" alt="Anime banner from the original theme" />
+          <h2>SmartCampus Service Desk</h2>
+        </div>
+        <div class="card-content">
+          <div class="post-meta"><div>Featured build <span>/</span> 04</div><div>Category: <a href="#projects">Full-stack</a></div></div>
+          <p>A campus support workflow for submitting, assigning, discussing, and tracking technical or academic requests.</p>
+        </div>
+        <footer class="card-footer"><div class="tags"><span>React</span><span>Express</span><span>PostgreSQL</span></div><a href="https://github.com/KyotaFill/SmartCampus-Service-Desk" target="_blank" rel="noreferrer">Open repository...</a></footer>
+      </article>
+
+      <article class="post-card project-card" data-search="terminal setup tauri rust typescript xterm developer tool">
+        <div class="card-image">
+          <img data-banner src="assets/banners/5.jpg" alt="Anime banner from the original theme" />
+          <h2>Terminal Setup</h2>
+        </div>
+        <div class="card-content">
+          <div class="post-meta"><div>Featured build <span>/</span> 05</div><div>Category: <a href="#projects">Tools</a></div></div>
+          <p>A Tauri workspace that groups terminal sessions and simplifies multi-process development workflows.</p>
+        </div>
+        <footer class="card-footer"><div class="tags"><span>Tauri</span><span>Rust</span><span>xterm.js</span></div><a href="https://github.com/KyotaFill/Terminal_setup" target="_blank" rel="noreferrer">Open repository...</a></footer>
+      </article>
+
+      <article class="post-card project-card" data-search="anime lecture studio python text to speech ffmpeg webcam voice synthesis">
+        <div class="card-image">
+          <img data-banner src="assets/banners/11.jpg" alt="Anime banner from the original theme" />
+          <h2>Anime Lecture Studio</h2>
+        </div>
+        <div class="card-content">
+          <div class="post-meta"><div>Featured build <span>/</span> 06</div><div>Category: <a href="#projects">Creative AI</a></div></div>
+          <p>A creative tool combining voice synthesis, webcam tracking, and FFmpeg automation for AI-generated lecture media.</p>
+        </div>
+        <footer class="card-footer"><div class="tags"><span>Python</span><span>TTS</span><span>FFmpeg</span></div><a href="https://github.com/KyotaFill/Anime-Lecture-Studio" target="_blank" rel="noreferrer">Open repository...</a></footer>
+      </article>
+
+      <p class="no-results" id="no-results" hidden>No matching project was found.</p>
+
+      <article class="post-card" id="stack">
+        <div class="card-image">
+          <img data-banner src="assets/banners/20.jpg" alt="Anime banner from the original theme" />
+          <h2>Technical stack</h2>
+        </div>
+        <div class="card-content">
+          <div class="post-meta"><div>Toolbox <span>/</span> 2026</div><div>Category: <a href="#stack">Stack</a></div></div>
+          <table class="stack-table">
+            <thead><tr><th>Area</th><th>Tools</th></tr></thead>
+            <tbody>
+              <tr><td>AI &amp; vision</td><td>TensorFlow, OpenCV, scikit-learn, NumPy, MobileNetV2</td></tr>
+              <tr><td>Web products</td><td>Next.js, React, TypeScript, FastAPI, Node.js</td></tr>
+              <tr><td>Infrastructure</td><td>PostgreSQL, Docker, Linux, Git, REST APIs</td></tr>
+              <tr><td>Connected systems</td><td>ESP32, MQTT, Node-RED, PlatformIO, Wokwi</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="card-footer"><div class="tags"><span>Python</span><span>TypeScript</span><span>C++</span></div><a href="https://github.com/KyotaFill?tab=repositories" target="_blank" rel="noreferrer">Browse all work...</a></footer>
+      </article>
+
+      <article class="post-card" id="contact">
+        <div class="card-image">
+          <img data-banner src="assets/banners/22.jpg" alt="Anime banner from the original theme" />
+          <h2>Contact &amp; collaboration</h2>
+        </div>
+        <div class="card-content">
+          <div class="post-meta"><div>Ho Chi Minh City <span>/</span> Vietnam</div><div>Category: <a href="#contact">About</a></div></div>
+          <p>I am open to student collaborations, practical AI experiments, and projects that connect software with the physical world.</p>
+          <div class="contact-actions"><a class="button primary" href="https://github.com/KyotaFill" target="_blank" rel="noreferrer">Open GitHub</a><button class="button" id="copy-handle" type="button" data-handle="@KyotaFill">Copy @KyotaFill</button></div>
+        </div>
+        <footer class="card-footer"><div class="tags"><span>Open to collaborate</span></div><a href="#top">Back to top...</a></footer>
+      </article>
+
+      <nav class="post-pagination" aria-label="Page navigation"><span class="current-page">1</span><a href="#projects">2</a><a href="#stack">3</a></nav>
+    </main>
+
+    <div class="fixed-actions" aria-label="Page actions">
+      <a href="https://github.com/KyotaFill" target="_blank" rel="noreferrer" title="GitHub" aria-label="Open GitHub">⌘</a>
+      <button id="to-top" type="button" title="Back to top" aria-label="Back to top">↑</button>
+    </div>
+
+    <footer class="footer"><div><span>© <span id="year">2026</span> Trần Trung Kiên</span><span>Built by KyotaFill</span></div></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Trần Trung Kiên","alternateName":"KyotaFill","url":"https://github.com/KyotaFill","sameAs":["https://github.com/KyotaFill"],"jobTitle":"AI/ML and IoT Student","address":{"@type":"PostalAddress","addressLocality":"Ho Chi Minh City","addressCountry":"VN"}}</script>
+    <script src="vendor/live2d.min.js"></script>
+    <script src="vendor/live2d-helper.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
