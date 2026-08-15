@@ -278,6 +278,8 @@ strong { font-weight: 600; }
 .live2d:hover .live2d-tip,
 .live2d-tip.visible { opacity: 1; }
 
+.live2d-highlight { color: #0099cc; }
+
 @keyframes live2d-shake {
   0%, 100% { transform: translate(0, 0) rotate(0); }
   2% { transform: translate(0.5px, -1.5px) rotate(-0.5deg); }
