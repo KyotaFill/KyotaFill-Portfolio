@@ -203,7 +203,7 @@ function initLanguageSwitcher() {
   switcher.setAttribute("role", "group");
   switcher.setAttribute("aria-label", "Language / Ngôn ngữ");
   switcher.innerHTML = '<button type="button" data-language="en">EN</button><button type="button" data-language="vi">VI</button>';
-  menu.append(switcher);
+  document.body.append(switcher);
 
   let savedLanguage = "vi";
   try { savedLanguage = window.localStorage.getItem("portfolio-language") || "vi"; } catch {}
@@ -214,6 +214,30 @@ function initLanguageSwitcher() {
     const button = event.target.closest("button[data-language]");
     if (button) applyLanguage(button.dataset.language);
   });
+}
+
+async function initBeamBackground() {
+  const layer = document.createElement("div");
+  layer.className = "beam-background";
+  layer.setAttribute("aria-hidden", "true");
+  document.body.prepend(layer);
+
+  try {
+    const { mountBeams } = await import("./vendor/spacevibe-beams.js");
+    mountBeams(layer, {
+      beamWidth: 2,
+      beamHeight: 20,
+      beamNumber: 14,
+      lightColor: "#ffffff",
+      lightIntensity: 2.6,
+      speed: 2,
+      noiseIntensity: 1.4,
+      scale: 0.2,
+      rotation: 14
+    });
+  } catch (error) {
+    console.warn("WebGL beam background is unavailable; using the static fallback.", error);
+  }
 }
 
 const yearElement = document.querySelector("#year");
@@ -431,6 +455,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+initBeamBackground();
 initLanguageSwitcher();
 randomizeBanners();
 bindLive2DReactions();

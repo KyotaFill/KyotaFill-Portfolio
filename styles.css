@@ -32,55 +32,38 @@ body {
   isolation: isolate;
 }
 
-body::before,
-body::after {
+body::before {
   position: fixed;
-  inset: -18%;
+  inset: 0;
   z-index: -2;
   content: "";
   pointer-events: none;
 }
 
 body::before {
-  inset: -12% -16%;
   background:
-    radial-gradient(ellipse 15% 42% at 51% 8%, rgb(255 255 255 / 74%), rgb(255 255 255 / 13%) 42%, transparent 72%),
-    radial-gradient(ellipse 15% 46% at 76% 47%, rgb(255 255 255 / 25%), transparent 72%),
-    linear-gradient(105deg,
-      #020303 0 8%, #171918 8% 16%, #030404 16% 25%,
-      #252826 25% 34%, #080a09 34% 43%, #373a38 43% 52%,
-      #050606 52% 62%, #202321 62% 71%, #030404 71% 82%,
-      #141615 82% 90%, #020303 90% 100%);
-  background-position: 50% 0;
-  background-size: 118% 118%;
-  filter: contrast(1.12) brightness(.92);
-  opacity: 0.94;
-  transform: translate3d(-1.5%, -1%, 0) scale(1.04);
-  animation: spacevibe-beams 16s ease-in-out infinite alternate;
-  will-change: transform, opacity;
+    radial-gradient(120% 74% at 50% 0%, rgb(255 255 255 / 5%), transparent 62%),
+    linear-gradient(180deg, #0b0d0c 0%, #090b0a 100%);
 }
 
-body::after {
+.beam-background {
+  position: fixed;
   z-index: -1;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.78'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
-  mix-blend-mode: soft-light;
-  opacity: 0.2;
-  animation: spacevibe-grain 700ms steps(2) infinite;
+  overflow: hidden;
+  opacity: .92;
+  pointer-events: none;
 }
 
-@keyframes spacevibe-beams {
-  0% { transform: translate3d(-2.5%, -1.5%, 0) scale(1.04); }
-  100% { transform: translate3d(2.5%, 1%, 0) scale(1.08); }
+.beam-background .beams-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: beams-lights-up 900ms ease both;
 }
 
-@keyframes spacevibe-grain {
-  0% { background-position: 0 0; }
-  25% { background-position: -14px 9px; }
-  50% { background-position: 11px -17px; }
-  75% { background-position: 18px 12px; }
-  100% { background-position: -8px -10px; }
+@keyframes beams-lights-up {
+  from { opacity: 0; }
 }
 
 a { color: var(--link); }
@@ -148,11 +131,15 @@ button, input { font: inherit; }
 .search-button svg { width: 24px; fill: none; stroke: currentColor; stroke-width: 2; }
 
 .language-switcher {
+  position: fixed;
+  z-index: 30;
+  top: 24px;
+  right: 30px;
   display: inline-flex;
   flex: 0 0 auto;
   height: 32px;
   align-items: center;
-  margin-left: 4px;
+  margin: 0;
   padding: 3px;
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -555,7 +542,7 @@ strong { font-weight: 600; }
 
 @media (max-width: 640px) {
   .header { min-height: 92px; padding: 20px 10px; }
-  .menu { justify-content: flex-start; gap: 6px; overflow-x: auto; padding: 4px; }
+  .menu { justify-content: flex-start; gap: 6px; overflow-x: auto; padding: 4px 82px 4px 4px; }
   .menu-item { min-width: auto; height: 36px; padding: 0 12px; font-size: 10px; }
   .home-button { min-width: 42px; }
   .search-button { width: 42px; min-width: 42px; height: 42px; }
@@ -578,8 +565,8 @@ strong { font-weight: 600; }
   .live2d { width: 150px; height: 273px; left: -8px; bottom: -3px; }
   .live2d canvas { width: 150px; height: 273px; }
   .live2d-tip { top: -50px; left: 8px; width: 185px; height: auto; min-height: 46px; margin: 0; padding: 6px 9px; background: rgb(247 230 202 / 96%); font-size: 11px; }
-  body::before { inset: -18% -65%; background-size: 150% 118%; opacity: 0.9; filter: contrast(1.08) brightness(.88); animation-duration: 20s; }
-  body::after { opacity: 0.18; }
+  .language-switcher { top: 12px; right: 12px; }
+  .beam-background { opacity: .78; }
   .footer > div { display: block; text-align: center; }
   .footer span { display: block; }
 }
@@ -587,5 +574,5 @@ strong { font-weight: 600; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
-  body::before, body::after { animation: none; }
+  .beam-background .beams-canvas { animation: none; }
 }
