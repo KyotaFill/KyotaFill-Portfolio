@@ -1,5 +1,5 @@
 :root {
-  --page: #eceff1;
+  --page: #090b0a;
   --paper: #ffffff;
   --ink: #34383b;
   --muted: #9aa0a4;
@@ -13,18 +13,67 @@
 * { box-sizing: border-box; }
 
 html {
+  min-height: 100%;
+  background: #090b0a;
   scroll-behavior: smooth;
   scroll-padding-top: 24px;
 }
 
 body {
+  position: relative;
+  min-height: 100vh;
   min-width: 320px;
   margin: 0;
   color: var(--ink);
-  background: var(--page);
+  background:
+    radial-gradient(120% 74% at 50% 0%, rgb(255 255 255 / 5%), transparent 62%),
+    linear-gradient(180deg, #0b0d0c 0%, #090b0a 100%);
   font-family: Arial, "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 1.65;
+  isolation: isolate;
+}
+
+body::before,
+body::after {
+  position: fixed;
+  inset: -18%;
+  z-index: -2;
+  content: "";
+  pointer-events: none;
+}
+
+body::before {
+  background-image:
+    linear-gradient(104deg, transparent 0 17%, rgb(255 255 255 / 5%) 20%, rgb(255 255 255 / 34%) 24%, rgb(255 255 255 / 7%) 29%, transparent 35% 100%),
+    linear-gradient(76deg, transparent 0 38%, rgb(255 255 255 / 4%) 42%, rgb(255 255 255 / 22%) 47%, rgb(255 255 255 / 5%) 52%, transparent 58% 100%),
+    repeating-linear-gradient(96deg, transparent 0 8%, rgb(255 255 255 / 6%) 9%, transparent 12% 18%);
+  background-position: 0 0, 100% 0, 50% 0;
+  background-size: 58% 120%, 72% 120%, 100% 100%;
+  filter: blur(15px);
+  opacity: 0.78;
+  transform: translate3d(-3%, -1%, 0) rotate(2deg) scale(1.08);
+  animation: spacevibe-beams 13s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+body::after {
+  z-index: -1;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M0 4h8M4 0v8' fill='none' stroke='%23ffffff' stroke-opacity='.1' stroke-width='.65'/%3E%3C/svg%3E");
+  mask-image: radial-gradient(circle at 72% 44%, #000 0%, transparent 74%);
+  opacity: 0.72;
+  animation: spacevibe-grid 28s linear infinite;
+}
+
+@keyframes spacevibe-beams {
+  0% { opacity: 0.58; transform: translate3d(-6%, -2%, 0) rotate(1deg) scale(1.05); }
+  48% { opacity: 0.82; transform: translate3d(2%, 1%, 0) rotate(3deg) scale(1.12); }
+  100% { opacity: 0.68; transform: translate3d(7%, -1%, 0) rotate(0deg) scale(1.08); }
+}
+
+@keyframes spacevibe-grid {
+  to { background-position: 56px 56px; }
 }
 
 a { color: var(--link); }
@@ -353,7 +402,7 @@ strong { font-weight: 600; }
 
 .live2d {
   position: fixed;
-  z-index: 1;
+  z-index: 15;
   bottom: 0;
   left: 0;
   width: 330px;
@@ -433,7 +482,7 @@ strong { font-weight: 600; }
 
 .fixed-actions button { background: #43a047; }
 
-.footer { padding: 18px 0; color: #8b9296; background: #dfe3e5; font-size: 11px; }
+.footer { padding: 18px 0; border-top: 1px solid rgb(255 255 255 / 12%); color: rgb(255 255 255 / 58%); background: rgb(10 12 11 / 88%); font-size: 11px; }
 .footer > div { display: flex; width: min(1080px, calc(100% - 32px)); justify-content: space-between; margin: auto; }
 
 .toast {
@@ -455,7 +504,9 @@ strong { font-weight: 600; }
 
 @media (max-width: 1149px) {
   .page { width: min(720px, calc(100% - 40px)); min-width: 0; }
-  .live2d { display: none; }
+  .live2d { width: 230px; height: 418px; left: -18px; }
+  .live2d canvas { width: 230px; height: 418px; }
+  .live2d-tip { width: 210px; height: 58px; margin: 38px 12px; font-size: 12px; }
 }
 
 @media (max-width: 640px) {
@@ -480,6 +531,11 @@ strong { font-weight: 600; }
   .stack-table { display: block; overflow-x: auto; }
   .fixed-actions { right: 14px; bottom: 64px; }
   .fixed-actions a, .fixed-actions button { width: 44px; height: 44px; }
+  .live2d { width: 150px; height: 273px; left: -8px; bottom: -3px; }
+  .live2d canvas { width: 150px; height: 273px; }
+  .live2d-tip { top: -50px; left: 8px; width: 185px; height: auto; min-height: 46px; margin: 0; padding: 6px 9px; background: rgb(236 217 188 / 88%); font-size: 11px; }
+  body::before { inset: -24%; opacity: 0.62; filter: blur(11px); animation-duration: 17s; }
+  body::after { opacity: 0.5; }
   .footer > div { display: block; text-align: center; }
   .footer span { display: block; }
 }
@@ -487,4 +543,5 @@ strong { font-weight: 600; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
+  body::before, body::after { animation: none; }
 }
