@@ -76,6 +76,7 @@ button, input { font: inherit; }
 
 .menu-item { min-width: 74px; padding: 0 18px; }
 .menu-item:hover, .search-button:hover { box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); transform: translateY(-1px); }
+.menu-item.active, .search-button.active { background: var(--accent); }
 .home-button { min-width: 58px; padding: 0; }
 .home-button svg { width: 17px; fill: currentColor; }
 
@@ -184,29 +185,46 @@ p { margin: 0 0 15px; }
 strong { font-weight: 600; }
 
 .readme-introduction {
-  margin: 24px 0 0;
-  padding: 19px 20px 16px;
-  border: 1px solid #dfe3e5;
-  background: #f7f8f8;
+  margin: 0;
 }
 
 .readme-introduction h2 {
-  margin: 0 0 10px;
-  color: #4a5054;
-  font-family: Consolas, "Liberation Mono", monospace;
-  font-size: 17px;
-  font-weight: 500;
+  margin: 0 0 16px;
 }
 
-.readme-introduction p { margin-bottom: 10px; }
+.readme-about-layout {
+  display: grid;
+  grid-template-columns: 34% 66%;
+  border: 1px solid #d0d7de;
+}
 
-.focus-list {
+.readme-character {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-right: 1px solid #d0d7de;
+}
+
+.readme-character img {
+  display: block;
+  width: 100%;
+  max-width: 310px;
+  height: auto;
+}
+
+.readme-profile-data {
+  min-width: 0;
   margin: 0;
-  padding-left: 20px;
-  color: #555c60;
+  padding: 18px;
+  overflow-x: auto;
+  color: #34383b;
+  background: #fff;
+  font-family: Consolas, "Liberation Mono", monospace;
+  font-size: 10px;
+  line-height: 1.55;
 }
-
-.focus-list li { margin: 4px 0; }
 
 .code-block,
 .mini-code {
@@ -384,6 +402,10 @@ strong { font-weight: 600; }
   .card-content { padding: 20px 18px 30px; }
   .post-meta { flex-wrap: wrap; gap: 4px; }
   .code-block { margin-right: -18px; margin-left: -18px; padding-right: 18px; padding-left: 18px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 10px; }
+  .readme-about-layout { display: block; }
+  .readme-character { border-right: 0; border-bottom: 1px solid #d0d7de; }
+  .readme-character img { max-width: 240px; }
+  .readme-profile-data { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 9px; }
   .card-footer { align-items: flex-start; flex-direction: column; }
   .stack-table { display: block; overflow-x: auto; }
   .fixed-actions { right: 14px; bottom: 64px; }
