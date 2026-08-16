@@ -184,6 +184,74 @@ h3 { font-weight: 400; }
 p { margin: 0 0 15px; }
 strong { font-weight: 600; }
 
+.github-readme {
+  color: #24292f;
+}
+
+.github-readme img {
+  max-width: 100%;
+  height: auto;
+}
+
+.readme-center { text-align: center; }
+.readme-wide { display: block; width: 100%; }
+
+.github-readme h2 {
+  margin: 25px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d8dee4;
+  color: #24292f;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.github-readme h3 {
+  margin: 13px 0 5px;
+  color: #24292f;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.readme-hero { margin-top: 18px; }
+
+.readme-divider {
+  margin: 22px 0;
+}
+
+.readme-section { margin: 0; }
+
+.readme-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 4px;
+  margin: 15px 0;
+}
+
+.readme-badges a { line-height: 0; }
+.readme-badges img { display: block; }
+.readme-dashboard { margin-top: 25px; }
+
+.readme-quest ul {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.readme-quest li { margin: 5px 0; }
+
+.readme-statistics img {
+  display: block;
+  margin: 15px auto;
+}
+
+.readme-statistics > img:first-child { max-height: 180px; }
+.readme-typing { width: min(760px, 100%); }
+
+.readme-ending { margin-top: 25px; }
+.readme-farewell { max-height: 250px; }
+.readme-credit { margin: 10px 0 0; color: #6e7781; line-height: 1.5; }
+
 .readme-introduction {
   margin: 0;
 }
@@ -406,6 +474,8 @@ strong { font-weight: 600; }
   .readme-character { border-right: 0; border-bottom: 1px solid #d0d7de; }
   .readme-character img { max-width: 240px; }
   .readme-profile-data { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 9px; }
+  .github-readme h2 { font-size: 19px; }
+  .readme-divider { margin: 16px 0; }
   .card-footer { align-items: flex-start; flex-direction: column; }
   .stack-table { display: block; overflow-x: auto; }
   .fixed-actions { right: 14px; bottom: 64px; }
