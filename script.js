@@ -223,7 +223,7 @@ async function initBeamBackground() {
   document.body.prepend(layer);
 
   try {
-    const { mountBeams } = await import("./vendor/spacevibe-beams.js");
+    const { mountBeams } = await import("/vendor/spacevibe-beams.js");
     mountBeams(layer, {
       beamWidth: 2,
       beamHeight: 20,
@@ -255,7 +255,7 @@ function shuffle(items) {
 function randomizeBanners() {
   const availableBanners = shuffle(Array.from({ length: 22 }, (_, index) => index + 1));
   bannerImages.forEach((image, index) => {
-    image.src = `assets/banners/${availableBanners[index % availableBanners.length]}.jpg`;
+    image.src = `/assets/banners/${availableBanners[index % availableBanners.length]}.jpg`;
   });
 }
 
@@ -297,7 +297,7 @@ function initLive2DCharacter() {
     "45", "46", "47", "48", "49", "50", "52", "53", "54"
   ];
   const outfit = outfits[Math.floor(Math.random() * outfits.length)];
-  const modelPath = `assets/live2d/asuna/asuna_${outfit}/asuna_${outfit}.edit.model.json`;
+  const modelPath = `/assets/live2d/asuna/asuna_${outfit}/asuna_${outfit}.edit.model.json`;
 
   character.loadModel(modelPath, () => {
     live2dCharacter = character;
@@ -333,10 +333,10 @@ function initLive2DCharacter() {
 function bindLive2DReactions() {
   const reactions = [
     [".home-button", "live.home"],
-    [".menu-item[href='profile.html']", "live.profile"],
-    [".menu-item[href='projects.html']", "live.projects"],
-    [".menu-item[href='stack.html']", "live.stack"],
-    [".menu-item[href='contact.html']", "live.contact"],
+    [".menu-item[href='/profile/']", "live.profile"],
+    [".menu-item[href='/projects/']", "live.projects"],
+    [".menu-item[href='/stack/']", "live.stack"],
+    [".menu-item[href='/contact/']", "live.contact"],
     ["#search-button", "live.search"],
     ["#to-top", "live.top"],
     ["#copy-handle", "live.handle"],
