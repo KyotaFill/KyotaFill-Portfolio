@@ -12,6 +12,7 @@ const live2dTip = document.querySelector(".live2d-tip");
 
 let live2dCharacter = null;
 let live2dMessageTimer;
+let lastAsunaDialogue = -1;
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 
@@ -31,10 +32,21 @@ function randomizeBanners() {
   });
 }
 
-function showLive2DMessage(message, expression) {
+function showLive2DMessage(message, expression, highlightedText) {
   if (!live2dTip || window.innerWidth < 1150) return;
 
-  live2dTip.textContent = message;
+  live2dTip.replaceChildren();
+
+  if (highlightedText && message.includes("{name}")) {
+    const [before, after] = message.split("{name}");
+    const highlight = document.createElement("span");
+    highlight.className = "live2d-highlight";
+    highlight.textContent = highlightedText;
+    live2dTip.append(before, highlight, after);
+  } else {
+    live2dTip.textContent = message;
+  }
+
   live2dTip.classList.add("visible");
 
   if (expression && live2dCharacter) {
@@ -66,8 +78,23 @@ function initLive2DCharacter() {
     character.startTurnHead();
     canvas.addEventListener("pointermove", (event) => character.followPointer(event));
     canvas.addEventListener("pointerleave", () => character.viewPointer(0, 0));
+    const clickDialogues = [
+      { text: "Bạn vừa chạm vào mình phải không?", expression: "F_SURPRISE" },
+      { text: "Xin chào, mình là Asuna.", expression: "F_FUN_WARM" },
+      { text: "Đừng chọc nữa, mình ngại đấy.", expression: "F_FUN_HANIKAMI" },
+      { text: "KyotaFill đang bận xây một dự án mới.", expression: "F_FUN_SMILE" },
+      { text: "Tải lại trang để xem mình đổi trang phục nhé.", expression: "F_FUN" }
+    ];
+
     canvas.addEventListener("click", () => {
-      showLive2DMessage("Xin chào, mình là Asuna.", "F_FUN_WARM");
+      let dialogueIndex;
+      do {
+        dialogueIndex = Math.floor(Math.random() * clickDialogues.length);
+      } while (dialogueIndex === lastAsunaDialogue && clickDialogues.length > 1);
+
+      lastAsunaDialogue = dialogueIndex;
+      const dialogue = clickDialogues[dialogueIndex];
+      showLive2DMessage(dialogue.text, dialogue.expression);
     });
 
     window.setTimeout(() => {
@@ -98,12 +125,20 @@ function bindLive2DReactions() {
   document.querySelectorAll(".project-card").forEach((card) => {
     card.addEventListener("mouseenter", () => {
       const title = card.querySelector("h2")?.textContent || "dự án này";
-      showLive2DMessage(`Bạn muốn xem ${title} sao?`, "F_FUN_SMILE");
+      showLive2DMessage("Bạn muốn xem {name} sao?", "F_FUN_SMILE", title);
     });
   });
 
   document.querySelectorAll(".card-footer a").forEach((link) => {
-    link.addEventListener("mouseenter", () => showLive2DMessage("Nhấn vào đây để xem thêm nhé.", "F_FUN"));
+    link.addEventListener("mouseenter", () => {
+      const projectCard = link.closest(".project-card");
+      if (projectCard) {
+        const title = projectCard.querySelector("h2")?.textContent || "dự án này";
+        showLive2DMessage("Mở repository {name} trên GitHub nhé.", "F_FUN", title);
+      } else {
+        showLive2DMessage("Nhấn vào đây để xem thêm nhé.", "F_FUN");
+      }
+    });
   });
 
   document.addEventListener("copy", () => {
@@ -149,7 +184,7 @@ copyHandleButton.addEventListener("click", async () => {
   const handle = copyHandleButton.dataset.handle;
   try {
     await navigator.clipboard.writeText(handle);
-    showToast(`${handle} copied`);
+    showToast(`Đã sao chép ${handle}`);
     showLive2DMessage("Đã sao chép @KyotaFill cho bạn rồi.", "F_FUN_SMILE");
   } catch {
     showToast(handle);
