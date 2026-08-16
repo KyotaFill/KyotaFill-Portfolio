@@ -14,7 +14,8 @@ let live2dCharacter = null;
 let live2dMessageTimer;
 let lastAsunaDialogue = -1;
 
-document.querySelector("#year").textContent = new Date().getFullYear();
+const yearElement = document.querySelector("#year");
+if (yearElement) yearElement.textContent = new Date().getFullYear();
 
 function shuffle(items) {
   const result = [...items];
@@ -105,11 +106,11 @@ function initLive2DCharacter() {
 
 function bindLive2DReactions() {
   const reactions = [
-    [".home-button", "Quay lại đầu trang nhé."],
-    [".menu-item[href='#profile']", "Đây là phần giới thiệu về Kiên."],
-    [".menu-item[href='#projects']", "Cùng xem những dự án nổi bật nào."],
-    [".menu-item[href='#stack']", "Đây là bộ công cụ Kiên thường sử dụng."],
-    [".menu-item[href='#contact']", "Có ý tưởng hay à? Hãy cùng xây dựng nhé."],
+    [".home-button", "Về trang chủ nhé."],
+    [".menu-item[href='profile.html']", "Đây là phần giới thiệu về Kiên."],
+    [".menu-item[href='projects.html']", "Cùng xem những dự án nổi bật nào."],
+    [".menu-item[href='stack.html']", "Đây là bộ công cụ Kiên thường sử dụng."],
+    [".menu-item[href='contact.html']", "Có ý tưởng hay à? Hãy cùng xây dựng nhé."],
     ["#search-button", "Bạn đang muốn tìm dự án nào vậy?"],
     ["#to-top", "Quay lại nơi bắt đầu nào."],
     ["#copy-handle", "Bạn có thể tìm KyotaFill trên GitHub."],
@@ -147,6 +148,7 @@ function bindLive2DReactions() {
 }
 
 function showToast(message) {
+  if (!toast) return;
   toast.textContent = message;
   toast.classList.add("visible");
   window.clearTimeout(showToast.timer);
@@ -154,6 +156,7 @@ function showToast(message) {
 }
 
 function setSearchOpen(open) {
+  if (!searchPanel || !searchInput || !noResults) return;
   searchPanel.hidden = !open;
   if (open) {
     searchInput.focus();
@@ -164,39 +167,54 @@ function setSearchOpen(open) {
   }
 }
 
-searchButton.addEventListener("click", () => setSearchOpen(searchPanel.hidden));
-closeSearchButton.addEventListener("click", () => setSearchOpen(false));
+if (searchButton && searchPanel) {
+  searchButton.addEventListener("click", () => setSearchOpen(searchPanel.hidden));
+}
 
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.trim().toLowerCase();
-  let visibleCount = 0;
+if (closeSearchButton) {
+  closeSearchButton.addEventListener("click", () => setSearchOpen(false));
+}
 
-  projects.forEach((project) => {
-    const matches = !query || project.dataset.search.includes(query) || project.textContent.toLowerCase().includes(query);
-    project.hidden = !matches;
-    if (matches) visibleCount += 1;
+if (searchPanel && window.location.hash === "#search") {
+  setSearchOpen(true);
+}
+
+if (searchInput && noResults) {
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    projects.forEach((project) => {
+      const matches = !query || project.dataset.search.includes(query) || project.textContent.toLowerCase().includes(query);
+      project.hidden = !matches;
+      if (matches) visibleCount += 1;
+    });
+
+    noResults.hidden = visibleCount !== 0;
   });
+}
 
-  noResults.hidden = visibleCount !== 0;
-});
+if (copyHandleButton) {
+  copyHandleButton.addEventListener("click", async () => {
+    const handle = copyHandleButton.dataset.handle;
+    try {
+      await navigator.clipboard.writeText(handle);
+      showToast(`Đã sao chép ${handle}`);
+      showLive2DMessage("Đã sao chép @KyotaFill cho bạn rồi.", "F_FUN_SMILE");
+    } catch {
+      showToast(handle);
+      showLive2DMessage("Tên GitHub là @KyotaFill nhé.", "F_NOMAL");
+    }
+  });
+}
 
-copyHandleButton.addEventListener("click", async () => {
-  const handle = copyHandleButton.dataset.handle;
-  try {
-    await navigator.clipboard.writeText(handle);
-    showToast(`Đã sao chép ${handle}`);
-    showLive2DMessage("Đã sao chép @KyotaFill cho bạn rồi.", "F_FUN_SMILE");
-  } catch {
-    showToast(handle);
-    showLive2DMessage("Tên GitHub là @KyotaFill nhé.", "F_NOMAL");
-  }
-});
-
-toTopButton.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+if (toTopButton) {
+  toTopButton.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+}
 
 let pendingG = false;
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") setSearchOpen(false);
+  if (event.key === "Escape" && searchPanel) setSearchOpen(false);
   if (event.target instanceof HTMLInputElement) return;
 
   if (event.key === "G") window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });

@@ -3,26 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Portfolio của Trần Trung Kiên (KyotaFill), sinh viên AI/ML và IoT xây dựng các sản phẩm thị giác máy tính, full-stack và hệ thống kết nối." />
+    <meta name="description" content="Hồ sơ của Trần Trung Kiên (KyotaFill), sinh viên AI/ML và IoT tại Thành phố Hồ Chí Minh." />
     <meta name="theme-color" content="#eceff1" />
-    <meta property="og:title" content="KyotaFill — Portfolio AI/ML & IoT" />
-    <meta property="og:description" content="Mô hình AI, sản phẩm phần mềm và hệ thống kết nối do Trần Trung Kiên xây dựng." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/banners/9.jpg" />
+    <meta property="og:title" content="Hồ sơ — Trần Trung Kiên / KyotaFill" />
+    <meta property="og:description" content="About me của KyotaFill với định hướng AI, machine learning, computer vision và IoT." />
+    <meta property="og:type" content="profile" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/KyotaFill/KyotaFill/main/assets/kyotafill-character.webp" />
     <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="preload" href="assets/banners/9.jpg" as="image" />
     <link rel="stylesheet" href="styles.css" />
-    <title>KyotaFill — Portfolio AI/ML & IoT</title>
+    <title>Hồ sơ — Trần Trung Kiên / KyotaFill</title>
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Đi đến nội dung</a>
 
     <header class="header">
       <nav class="menu" aria-label="Điều hướng chính">
-        <a class="menu-item home-button active" href="index.html" title="Trang đầu" aria-label="Trang đầu" aria-current="page">
+        <a class="menu-item home-button" href="index.html" title="Trang đầu" aria-label="Trang đầu">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.2 12 4l9 7.2v8.3a.5.5 0 0 1-.5.5H15v-6H9v6H3.5a.5.5 0 0 1-.5-.5z" /></svg>
         </a>
-        <a class="menu-item" href="profile.html">Hồ sơ</a>
+        <a class="menu-item active" href="profile.html" aria-current="page">Hồ sơ</a>
         <a class="menu-item" href="projects.html">Dự án</a>
         <a class="menu-item" href="stack.html">Công nghệ</a>
         <a class="menu-item" href="contact.html">Liên hệ</a>
@@ -33,7 +32,7 @@
     </header>
 
     <div class="live2d" aria-label="Nhân vật Live2D tương tác">
-      <div class="live2d-tip">Chào mừng bạn đến với góc nhỏ của KyotaFill.</div>
+      <div class="live2d-tip">Đây là hồ sơ của KyotaFill.</div>
       <canvas id="glcanvas" width="330" height="600" role="img" aria-label="Nhân vật Live2D Asuna tương tác"></canvas>
     </div>
 
@@ -41,38 +40,53 @@
       <article class="post-card">
         <div class="card-image">
           <img data-banner src="assets/banners/9.jpg" alt="Ảnh banner anime từ giao diện gốc" />
-          <h1>Trần Trung Kiên / KyotaFill</h1>
+          <h1>Trần Trung Kiên / README.md</h1>
         </div>
         <div class="card-content">
           <div class="post-meta">
             <div><time datetime="2025-10-19">2025-10-19</time><span>/</span><time datetime="2026-08-16">2026-08-16</time></div>
-            <div>Danh mục: <a href="index.html">Trang chủ</a></div>
+            <div>Danh mục: <a href="profile.html">Hồ sơ</a></div>
           </div>
-          <p>Mình là sinh viên học tập tại Đại học Kinh tế Thành phố Hồ Chí Minh, tập trung vào thị giác máy tính, sản phẩm ứng dụng AI, tự động hóa và hệ thống nhúng.</p>
-          <pre class="code-block"><code><span class="comment">// home.ts</span>
-<span class="keyword">const</span> kyotafill = {
-  role: <span class="string">"Sinh viên AI/ML & IoT"</span>,
-  location: <span class="string">"TP. Hồ Chí Minh, Việt Nam"</span>,
-  mission: <span class="string">"Học → Xây dựng → Đo lường → Cải tiến"</span>
-};</code></pre>
+          <section class="readme-introduction" aria-labelledby="readme-about-title">
+            <h2 id="readme-about-title">About me</h2>
+            <div class="readme-about-layout">
+              <div class="readme-character">
+                <img src="https://raw.githubusercontent.com/KyotaFill/KyotaFill/main/assets/kyotafill-character.webp" alt="Anime character with a glowing sword" />
+              </div>
+              <pre class="readme-profile-data">Profile Version : 4.0
+Alias           : KyotaFill
+Name            : Trần Trung Kiên
+Role            : AI/ML and IoT Student
+Education       : University of Economics Ho Chi Minh City
+Location        : Ho Chi Minh City, Vietnam
+
+Main focus:
+  - Computer vision and applied machine learning
+  - Full-stack products powered by AI services
+  - ESP32, MQTT, automation, and connected devices
+  - Developer tools for practical workflows
+
+Languages       : Python, TypeScript, JavaScript, C++
+Current mission : Turn experiments into usable systems
+Mindset         : Learn. Build. Measure. Improve.</pre>
+            </div>
+          </section>
         </div>
         <footer class="card-footer">
           <div class="tags"><span>AI/ML</span><span>Computer Vision</span><span>IoT</span></div>
-          <a href="profile.html">Đọc hồ sơ...</a>
+          <a href="https://github.com/KyotaFill/KyotaFill#readme" target="_blank" rel="noreferrer">Xem README gốc...</a>
         </footer>
       </article>
 
-      <nav class="post-pagination" aria-label="Điều hướng trang"><span class="current-page">1</span><a href="profile.html">2</a><a href="projects.html">3</a><a href="stack.html">4</a><a href="contact.html">5</a></nav>
+      <nav class="post-pagination" aria-label="Điều hướng trang"><a href="index.html">1</a><span class="current-page">2</span><a href="projects.html">3</a><a href="stack.html">4</a><a href="contact.html">5</a></nav>
     </main>
 
     <div class="fixed-actions" aria-label="Thao tác trang">
       <a href="https://github.com/KyotaFill" target="_blank" rel="noreferrer" title="GitHub" aria-label="Mở GitHub">⌘</a>
       <button id="to-top" type="button" title="Về đầu trang" aria-label="Về đầu trang">↑</button>
     </div>
-
     <footer class="footer"><div><span>© <span id="year">2026</span> Trần Trung Kiên</span><span>Được xây dựng bởi KyotaFill</span></div></footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Trần Trung Kiên","alternateName":"KyotaFill","url":"https://kiendevst1.io.vn","sameAs":["https://github.com/KyotaFill"],"jobTitle":"Sinh viên AI/ML và IoT","address":{"@type":"PostalAddress","addressLocality":"Thành phố Hồ Chí Minh","addressCountry":"VN"}}</script>
     <script src="vendor/live2d.min.js"></script>
     <script src="vendor/live2d-helper.min.js"></script>
     <script src="script.js"></script>
