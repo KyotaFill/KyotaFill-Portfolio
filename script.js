@@ -34,7 +34,7 @@ function randomizeBanners() {
 }
 
 function showLive2DMessage(message, expression, highlightedText) {
-  if (!live2dTip || window.innerWidth < 1150) return;
+  if (!live2dTip) return;
 
   live2dTip.replaceChildren();
 
@@ -60,7 +60,7 @@ function showLive2DMessage(message, expression, highlightedText) {
 
 function initLive2DCharacter() {
   const canvas = document.querySelector("#glcanvas");
-  if (!canvas || window.innerWidth < 1150 || typeof Live2DHelper === "undefined") return;
+  if (!canvas || typeof Live2DHelper === "undefined") return;
 
   const character = new Live2DHelper({ canvas: "glcanvas" });
   const outfits = [
