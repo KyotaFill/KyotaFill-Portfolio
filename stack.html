@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Ngôn ngữ, framework, công cụ AI và nền tảng IoT KyotaFill sử dụng." />
-    <meta name="theme-color" content="#eceff1" />
+    <meta name="theme-color" content="#090b0a" />
     <meta property="og:title" content="Công nghệ — KyotaFill" />
     <meta property="og:description" content="Bộ công cụ AI, web, hạ tầng và hệ thống kết nối của KyotaFill." />
     <meta property="og:type" content="website" />
@@ -13,15 +13,15 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Công nghệ — KyotaFill</title>
   </head>
-  <body id="top">
-    <a class="skip-link" href="#main-content">Đi đến nội dung</a>
+  <body id="top" data-page="stack">
+    <a class="skip-link" href="#main-content" data-i18n="common.skip">Đi đến nội dung</a>
     <header class="header">
       <nav class="menu" aria-label="Điều hướng chính">
         <a class="menu-item home-button" href="index.html" title="Trang đầu" aria-label="Trang đầu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.2 12 4l9 7.2v8.3a.5.5 0 0 1-.5.5H15v-6H9v6H3.5a.5.5 0 0 1-.5-.5z" /></svg></a>
-        <a class="menu-item" href="profile.html">Hồ sơ</a>
-        <a class="menu-item" href="projects.html">Dự án</a>
-        <a class="menu-item active" href="stack.html" aria-current="page">Công nghệ</a>
-        <a class="menu-item" href="contact.html">Liên hệ</a>
+        <a class="menu-item" href="profile.html" data-i18n="nav.profile">Hồ sơ</a>
+        <a class="menu-item" href="projects.html" data-i18n="nav.projects">Dự án</a>
+        <a class="menu-item active" href="stack.html" aria-current="page" data-i18n="nav.stack">Công nghệ</a>
+        <a class="menu-item" href="contact.html" data-i18n="nav.contact">Liên hệ</a>
         <a class="search-button" href="projects.html#search" title="Tìm dự án" aria-label="Tìm dự án"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.7" cy="10.7" r="5.7" /><path d="m15 15 4.5 4.5" /></svg></a>
       </nav>
     </header>
@@ -30,27 +30,27 @@
 
     <main class="page" id="main-content">
       <article class="post-card">
-        <div class="card-image"><img data-banner src="assets/banners/20.jpg" alt="Ảnh banner anime từ giao diện gốc" /><h1>Công nghệ sử dụng</h1></div>
+        <div class="card-image"><img data-banner src="assets/banners/20.jpg" alt="Ảnh banner anime từ giao diện gốc" /><h1 data-i18n="stack.title">Công nghệ sử dụng</h1></div>
         <div class="card-content">
-          <div class="post-meta"><div>Bộ công cụ <span>/</span> 2026</div><div>Danh mục: <a href="stack.html">Công nghệ</a></div></div>
+          <div class="post-meta"><div><span data-i18n="stack.toolkit">Bộ công cụ</span> <span>/</span> 2026</div><div><span data-i18n="common.category">Danh mục:</span> <a href="stack.html" data-i18n="nav.stack">Công nghệ</a></div></div>
           <table class="stack-table">
-            <thead><tr><th>Lĩnh vực</th><th>Công cụ</th></tr></thead>
+            <thead><tr><th data-i18n="stack.area">Lĩnh vực</th><th data-i18n="stack.tools">Công cụ</th></tr></thead>
             <tbody>
-              <tr><td>Ngôn ngữ cốt lõi</td><td>Python, TypeScript, JavaScript, C++</td></tr>
-              <tr><td>AI &amp; thị giác</td><td>TensorFlow, OpenCV, scikit-learn, NumPy, MobileNetV2</td></tr>
-              <tr><td>Sản phẩm web</td><td>Next.js, React, TypeScript, FastAPI, Node.js</td></tr>
-              <tr><td>Hạ tầng</td><td>PostgreSQL, Docker, Linux, Git, REST APIs</td></tr>
-              <tr><td>Hệ thống kết nối</td><td>ESP32, MQTT, Node-RED, PlatformIO, Wokwi</td></tr>
+              <tr><td data-i18n="stack.languages">Ngôn ngữ cốt lõi</td><td>Python, TypeScript, JavaScript, C++</td></tr>
+              <tr><td data-i18n="stack.vision">AI &amp; thị giác</td><td>TensorFlow, OpenCV, scikit-learn, NumPy, MobileNetV2</td></tr>
+              <tr><td data-i18n="stack.web">Sản phẩm web</td><td>Next.js, React, TypeScript, FastAPI, Node.js</td></tr>
+              <tr><td data-i18n="stack.infrastructure">Hạ tầng</td><td>PostgreSQL, Docker, Linux, Git, REST APIs</td></tr>
+              <tr><td data-i18n="stack.connected">Hệ thống kết nối</td><td>ESP32, MQTT, Node-RED, PlatformIO, Wokwi</td></tr>
             </tbody>
           </table>
         </div>
-        <footer class="card-footer"><div class="tags"><span>Python</span><span>TypeScript</span><span>C++</span></div><a href="https://github.com/KyotaFill?tab=repositories" target="_blank" rel="noreferrer">Xem tất cả dự án...</a></footer>
+        <footer class="card-footer"><div class="tags"><span>Python</span><span>TypeScript</span><span>C++</span></div><a href="https://github.com/KyotaFill?tab=repositories" target="_blank" rel="noreferrer" data-i18n="stack.viewProjects">Xem tất cả dự án...</a></footer>
       </article>
       <nav class="post-pagination" aria-label="Điều hướng trang"><a href="index.html">1</a><a href="profile.html">2</a><a href="projects.html">3</a><span class="current-page">4</span><a href="contact.html">5</a></nav>
     </main>
 
     <div class="fixed-actions" aria-label="Thao tác trang"><a href="https://github.com/KyotaFill" target="_blank" rel="noreferrer" title="GitHub" aria-label="Mở GitHub">⌘</a><button id="to-top" type="button" title="Về đầu trang" aria-label="Về đầu trang">↑</button></div>
-    <footer class="footer"><div><span>© <span id="year">2026</span> Trần Trung Kiên</span><span>Được xây dựng bởi KyotaFill</span></div></footer>
+    <footer class="footer"><div><span>© <span id="year">2026</span> Trần Trung Kiên</span><span data-i18n="common.builtBy">Được xây dựng bởi KyotaFill</span></div></footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="vendor/live2d.min.js"></script><script src="vendor/live2d-helper.min.js"></script><script src="script.js"></script>
   </body>

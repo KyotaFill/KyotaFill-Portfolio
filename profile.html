@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Hồ sơ của Trần Trung Kiên (KyotaFill), sinh viên AI/ML và IoT tại Thành phố Hồ Chí Minh." />
-    <meta name="theme-color" content="#eceff1" />
+    <meta name="theme-color" content="#090b0a" />
     <meta property="og:title" content="Hồ sơ — Trần Trung Kiên / KyotaFill" />
     <meta property="og:description" content="About me của KyotaFill với định hướng AI, machine learning, computer vision và IoT." />
     <meta property="og:type" content="profile" />
@@ -13,18 +13,18 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Hồ sơ — Trần Trung Kiên / KyotaFill</title>
   </head>
-  <body id="top">
-    <a class="skip-link" href="#main-content">Đi đến nội dung</a>
+  <body id="top" data-page="profile">
+    <a class="skip-link" href="#main-content" data-i18n="common.skip">Đi đến nội dung</a>
 
     <header class="header">
       <nav class="menu" aria-label="Điều hướng chính">
         <a class="menu-item home-button" href="index.html" title="Trang đầu" aria-label="Trang đầu">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.2 12 4l9 7.2v8.3a.5.5 0 0 1-.5.5H15v-6H9v6H3.5a.5.5 0 0 1-.5-.5z" /></svg>
         </a>
-        <a class="menu-item active" href="profile.html" aria-current="page">Hồ sơ</a>
-        <a class="menu-item" href="projects.html">Dự án</a>
-        <a class="menu-item" href="stack.html">Công nghệ</a>
-        <a class="menu-item" href="contact.html">Liên hệ</a>
+        <a class="menu-item active" href="profile.html" aria-current="page" data-i18n="nav.profile">Hồ sơ</a>
+        <a class="menu-item" href="projects.html" data-i18n="nav.projects">Dự án</a>
+        <a class="menu-item" href="stack.html" data-i18n="nav.stack">Công nghệ</a>
+        <a class="menu-item" href="contact.html" data-i18n="nav.contact">Liên hệ</a>
         <a class="search-button" href="projects.html#search" title="Tìm dự án" aria-label="Tìm dự án">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.7" cy="10.7" r="5.7" /><path d="m15 15 4.5 4.5" /></svg>
         </a>
@@ -45,7 +45,7 @@
         <div class="card-content">
           <div class="post-meta">
             <div><time datetime="2025-10-19">2025-10-19</time><span>/</span><time datetime="2026-08-16">2026-08-16</time></div>
-            <div>Danh mục: <a href="profile.html">Hồ sơ</a></div>
+            <div><span data-i18n="common.category">Danh mục:</span> <a href="profile.html" data-i18n="nav.profile">Hồ sơ</a></div>
           </div>
           <div class="github-readme">
             <div class="readme-center">
@@ -174,7 +174,7 @@ Mindset         : Learn. Build. Measure. Improve.</pre>
         </div>
         <footer class="card-footer">
           <div class="tags"><span>AI/ML</span><span>Computer Vision</span><span>IoT</span></div>
-          <a href="https://github.com/KyotaFill/KyotaFill#readme" target="_blank" rel="noreferrer">Xem README gốc...</a>
+          <a href="https://github.com/KyotaFill/KyotaFill#readme" target="_blank" rel="noreferrer" data-i18n="profile.originalReadme">Xem README gốc...</a>
         </footer>
       </article>
 
@@ -185,7 +185,7 @@ Mindset         : Learn. Build. Measure. Improve.</pre>
       <a href="https://github.com/KyotaFill" target="_blank" rel="noreferrer" title="GitHub" aria-label="Mở GitHub">⌘</a>
       <button id="to-top" type="button" title="Về đầu trang" aria-label="Về đầu trang">↑</button>
     </div>
-    <footer class="footer"><div><span>© <span id="year">2026</span> Trần Trung Kiên</span><span>Được xây dựng bởi KyotaFill</span></div></footer>
+    <footer class="footer"><div><span>© <span id="year">2026</span> Trần Trung Kiên</span><span data-i18n="common.builtBy">Được xây dựng bởi KyotaFill</span></div></footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="vendor/live2d.min.js"></script>
     <script src="vendor/live2d-helper.min.js"></script>
