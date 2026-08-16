@@ -21,8 +21,10 @@ html {
 
 body {
   position: relative;
+  display: flex;
   min-height: 100vh;
   min-width: 320px;
+  flex-direction: column;
   margin: 0;
   color: var(--ink);
   background: #090b0a;
@@ -102,21 +104,20 @@ button, input { font: inherit; }
   height: 40px;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--line);
-  border-radius: 0;
+  border: 0;
+  border-radius: 2px;
   color: #fff;
-  background: var(--button);
-  box-shadow: none;
+  background: #5a5a5a;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
   font-size: 12px;
   text-decoration: none;
   cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+  transition: box-shadow 160ms ease, transform 160ms ease;
 }
 
 .menu-item { min-width: 74px; padding: 0 18px; }
-.menu-item:hover, .search-button:hover { border-color: rgb(255 255 255 / 52%); background: rgb(255 255 255 / 8%); }
-.menu-item.active, .search-button.active { color: #090b0a; background: var(--accent); }
+.menu-item:hover, .search-button:hover { box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); transform: translateY(-1px); }
+.menu-item.active, .search-button.active { color: #fff; background: #607d8b; }
 .home-button { min-width: 58px; padding: 0; }
 .home-button svg { width: 17px; fill: currentColor; }
 
@@ -124,8 +125,8 @@ button, input { font: inherit; }
   width: 58px;
   height: 58px;
   margin-left: 5px;
-  border-radius: 0;
-  background: var(--button);
+  border-radius: 50%;
+  background: #607d8b;
 }
 
 .search-button svg { width: 24px; fill: none; stroke: currentColor; stroke-width: 2; }
@@ -191,6 +192,7 @@ button, input { font: inherit; }
 .page {
   width: min(760px, 50vw);
   min-width: 590px;
+  flex: 1 0 auto;
   margin: 0 auto 45px;
 }
 
@@ -513,7 +515,7 @@ strong { font-weight: 600; }
 
 .fixed-actions button { background: rgb(7 9 8 / 82%); }
 
-.footer { padding: 18px 0; border-top: 1px solid rgb(255 255 255 / 12%); color: rgb(255 255 255 / 58%); background: rgb(10 12 11 / 88%); font-size: 11px; }
+.footer { flex: 0 0 auto; padding: 18px 0; border-top: 1px solid rgb(255 255 255 / 12%); color: rgb(255 255 255 / 58%); background: transparent; font-size: 11px; }
 .footer > div { display: flex; width: min(1080px, calc(100% - 32px)); justify-content: space-between; margin: auto; }
 
 .toast {
