@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="38" viewBox="0 0 920 38" role="img" aria-label="Electric lightning section divider">
+  <defs>
+    <linearGradient id="electric" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2f81f7"/>
+      <stop offset="0.5" stop-color="#a371f7"/>
+      <stop offset="1" stop-color="#f85149"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-300%" width="140%" height="700%">
+      <feGaussianBlur stdDeviation="3.4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .pulse { animation: pulse 1.8s ease-in-out infinite alternate; }
+      .runner { stroke-dasharray: 26 34; animation: run 2.4s linear infinite; }
+      @keyframes pulse { from { opacity: .55; } to { opacity: 1; } }
+      @keyframes run { to { stroke-dashoffset: -120; } }
+    </style>
+  </defs>
+  <path d="M18 19 H120 L134 11 L129 19 H252 L270 26 L264 19 H390 L407 8 L401 19 H520 L537 28 L531 19 H655 L674 10 L668 19 H790 L807 25 L802 19 H902"
+        fill="none" stroke="url(#electric)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" class="pulse"/>
+  <path d="M18 19 H902" fill="none" stroke="#ffffff" stroke-opacity=".65" stroke-width=".8" class="runner"/>
+  <g fill="none" stroke="url(#electric)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" class="pulse">
+    <path d="M82 15 l8-9 -3 8 8-3 -9 12"/>
+    <path d="M218 22 l7 9 -2-8 8 3 -10-12"/>
+    <path d="M347 15 l9-10 -3 9 8-3 -10 13"/>
+    <path d="M579 22 l8 10 -3-9 9 3 -11-13"/>
+    <path d="M724 15 l8-9 -2 8 8-3 -10 12"/>
+    <path d="M852 22 l7 9 -2-8 8 3 -10-12"/>
+  </g>
+</svg>
